@@ -27,17 +27,8 @@ sudo apt install -y ./google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
 
 echo ""
-echo "✅ System setup complete. Now you need to register this machine with Chrome Remote Desktop."
-
-echo "📋 Please go to: https://remotedesktop.google.com/headless"
-echo "🔐 Select 'Debian Linux' and copy the entire registration command starting with:"
-echo "    DISPLAY= /opt/google/chrome-remote-desktop/start-host ..."
+echo "✅ System setup complete."
+echo "🔚 Now open the following page on your browser to register Chrome Remote Desktop:"
+echo "🔗 https://remotedesktop.google.com/headless"
+echo "📋 Select 'Debian Linux' and run the provided command manually."
 echo ""
-read -p "👉 Paste the full registration command here: " FULL_CMD
-
-echo "🚀 Running your registration command..."
-eval "$FULL_CMD"
-
-echo ""
-echo "✅ Chrome Remote Desktop setup is now complete!"
-echo "💡 You can now access this machine remotely from your Google account."

@@ -10,13 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Download setup script from GitHub
+        run: wget https://raw.githubusercontent.com/charukaruhub/saif-desk-script/main/setup.sh
 
-      - name: Make script executable
+      - name: Make setup script executable
         run: chmod +x setup.sh
 
       - name: Run setup script
         run: ./setup.sh
-        env:
-          FULL_CMD: ${{ secrets.CHROME_REG_CMD }}
