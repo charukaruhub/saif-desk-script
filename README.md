@@ -9,7 +9,7 @@ Automated setup for:
 ## 🔧 Installation (Manual)
 
 ```bash
-wget https://raw.githubusercontent.com/YOUR_USERNAME/saif-desk-script/main/setup.sh
+wget https://raw.githubusercontent.com/charukaruhub/saif-desk-script/main/setup.sh
 chmod +x setup.sh
 ./setup.sh
 ```
