@@ -18,3 +18,5 @@ jobs:
 
       - name: Run setup script
         run: ./setup.sh
+        env:
+          FULL_CMD: ${{ secrets.CHROME_REG_CMD }}
