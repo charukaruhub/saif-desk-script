@@ -18,9 +18,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base 
 echo "🛠 Setting Chrome Remote Desktop session..."
 sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
 
-echo "🚫 Disabling lightdm to prevent conflict with CRD..."
-sudo systemctl disable lightdm.service
-
 echo "⬇️ Installing Google Chrome..."
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install -y ./google-chrome-stable_current_amd64.deb
