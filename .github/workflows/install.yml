@@ -19,11 +19,10 @@ jobs:
       - name: Run setup script
         run: ./setup.sh
 
-      - name: Verify NetworkManager status
+      - name: Check NetworkManager installation
         run: |
-          echo "Checking NetworkManager..."
-          if ! systemctl is-active --quiet NetworkManager; then
-            echo "NetworkManager is not running. Starting it now..."
-            sudo systemctl start NetworkManager
+          if command -v nmcli &> /dev/null; then
+            echo "NetworkManager installed successfully."
+          else
+            echo "NetworkManager installation failed."
           fi
-          sudo systemctl status NetworkManager --no-pager

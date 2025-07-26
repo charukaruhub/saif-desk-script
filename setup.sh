@@ -18,9 +18,13 @@ sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base 
 echo "📡 Installing NetworkManager..."
 sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes network-manager network-manager-gnome
 
-echo "▶️ Enabling and starting NetworkManager..."
-sudo systemctl enable NetworkManager
-sudo systemctl start NetworkManager
+echo "▶️ Enabling and starting NetworkManager (if supported)..."
+if pidof systemd &>/dev/null; then
+    sudo systemctl enable NetworkManager
+    sudo systemctl start NetworkManager
+else
+    echo "⚠️ systemd is not running (likely GitHub Actions or a container). Skipping enable/start."
+fi
 
 echo "🛠 Setting Chrome Remote Desktop session..."
 sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
