@@ -15,6 +15,13 @@ rm chrome-remote-desktop_current_amd64.deb
 echo "🖥 Installing XFCE desktop environment..."
 sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
 
+echo "📡 Installing NetworkManager..."
+sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes network-manager network-manager-gnome
+
+echo "▶️ Enabling and starting NetworkManager..."
+sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
+
 echo "🛠 Setting Chrome Remote Desktop session..."
 sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
 

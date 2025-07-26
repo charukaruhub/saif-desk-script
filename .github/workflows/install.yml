@@ -18,3 +18,12 @@ jobs:
 
       - name: Run setup script
         run: ./setup.sh
+
+      - name: Verify NetworkManager status
+        run: |
+          echo "Checking NetworkManager..."
+          if ! systemctl is-active --quiet NetworkManager; then
+            echo "NetworkManager is not running. Starting it now..."
+            sudo systemctl start NetworkManager
+          fi
+          sudo systemctl status NetworkManager --no-pager
